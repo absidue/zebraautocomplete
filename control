@@ -1,0 +1,9 @@
+Package: me.absidue.zebraautocomplete
+Name: ZebraAutoComplete
+Depends: mobilesubstrate, xyz.willy.Zebra
+Version: 0.0.1
+Architecture: iphoneos-arm
+Description: Zebra auto respring, close or done
+Maintainer: absidue
+Author: absidue
+Section: Tweaks
