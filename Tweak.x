@@ -20,10 +20,15 @@ NSString *prefsPath = @"/var/mobile/Library/Preferences/me.absidue.zebraautocomp
     prefs = [[NSMutableDictionary alloc] initWithContentsOfFile:prefsPath];
     double timeout = prefs ? [prefs[@"timeout"] doubleValue] : 1.0;
 
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(timeout * NSEC_PER_SEC));
-    dispatch_after(popTime, dispatch_get_main_queue(), ^{
+    dispatch_block_t completeBlock = ^{
         [self.completeButton sendActionsForControlEvents:UIControlEventTouchUpInside];
-    });
+    };
+    if (timeout == 0.0) {
+        dispatch_async(dispatch_get_main_queue(), completeBlock);
+    } else {
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(timeout * NSEC_PER_SEC));
+        dispatch_after(popTime, dispatch_get_main_queue(), completeBlock);
+    }
 }
 %end
 
