@@ -8,7 +8,8 @@
 
 #import "Tweak.h"
 
-double timeout = 1.0;
+NSMutableDictionary *prefs = nil;
+NSString *prefsPath = @"/var/mobile/Library/Preferences/me.absidue.zebraautocomplete.plist";
 
 %group enabled
 
@@ -16,6 +17,11 @@ double timeout = 1.0;
 
 - (void)updateCompleteButton {
     %orig;
+    double timeout = 1.0;
+    prefs = [[NSMutableDictionary alloc] initWithContentsOfFile:prefsPath];
+    if (prefs) {
+        timeout = [prefs[@"timeout"] doubleValue];
+    }
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(timeout * NSEC_PER_SEC));
     dispatch_after(popTime, dispatch_get_main_queue(), ^{
         [self.completeButton sendActionsForControlEvents:UIControlEventTouchUpInside];
@@ -26,10 +32,9 @@ double timeout = 1.0;
 %end
 
 %ctor {
-    NSMutableDictionary *prefs = [[NSMutableDictionary alloc] initWithContentsOfFile:@"/var/mobile/Library/Preferences/me.absidue.zebraautocomplete.plist"];
+    prefs = [[NSMutableDictionary alloc] initWithContentsOfFile:prefsPath];
     BOOL enabled = YES;
     if (prefs) {
-        timeout = [prefs[@"timeout"] doubleValue];
         enabled = [prefs[@"enabled"] boolValue];
     }
     if (enabled == YES) {
