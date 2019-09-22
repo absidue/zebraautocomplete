@@ -1,4 +1,4 @@
-ARCHS = armv7 armv7s arm64 arm64e
+ARCHS = armv7 arm64 arm64e
 TARGET = iphone:clang:11.2:9.0
 
 INSTALL_TARGET_PROCESSES = Zebra

@@ -6,7 +6,7 @@
 //  Copyright © 2019 absidue. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <UIKit/UIButton.h>
 
 @interface ZBConsoleViewController
 @property (strong, nonatomic) IBOutlet UIButton *completeButton;

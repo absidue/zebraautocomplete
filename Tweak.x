@@ -17,11 +17,9 @@ NSString *prefsPath = @"/var/mobile/Library/Preferences/me.absidue.zebraautocomp
 
 - (void)updateCompleteButton {
     %orig;
-    double timeout = 1.0;
     prefs = [[NSMutableDictionary alloc] initWithContentsOfFile:prefsPath];
-    if (prefs) {
-        timeout = [prefs[@"timeout"] doubleValue];
-    }
+    double timeout = prefs ? [prefs[@"timeout"] doubleValue] : 1.0;
+
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(timeout * NSEC_PER_SEC));
     dispatch_after(popTime, dispatch_get_main_queue(), ^{
         [self.completeButton sendActionsForControlEvents:UIControlEventTouchUpInside];
@@ -33,11 +31,6 @@ NSString *prefsPath = @"/var/mobile/Library/Preferences/me.absidue.zebraautocomp
 
 %ctor {
     prefs = [[NSMutableDictionary alloc] initWithContentsOfFile:prefsPath];
-    BOOL enabled = YES;
-    if (prefs) {
-        enabled = [prefs[@"enabled"] boolValue];
-    }
-    if (enabled == YES) {
-        %init(enabled);
-    }
+    BOOL enabled = prefs ? [prefs[@"enabled"] boolValue] : YES;
+    if (enabled == YES) %init(enabled);
 }
