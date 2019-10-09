@@ -2,7 +2,7 @@
 //  Preferences.h
 //  ZebraAutoCompletePrefs
 //
-//  Created by absidue on 08/09/2019.
+//  Created by absidue on 2019-09-08.
 //  Copyright © 2019 absidue. All rights reserved.
 //
 
@@ -10,5 +10,5 @@
 #import "NSTask.h"
 
 @interface ZACPrefsListController : PSListController
-    - (void)killZebra:(id)sender;
+- (void)closeZebra:(id)sender;
 @end

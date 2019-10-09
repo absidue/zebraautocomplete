@@ -54,7 +54,7 @@
 			<key>label</key>
 			<string>Apply (Close Zebra)</string>
 			<key>action</key>
-			<string>killZebra:</string>
+			<string>closeZebra:</string>
 		</dict>
 		<dict>
 			<key>cell</key>

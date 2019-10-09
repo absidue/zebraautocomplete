@@ -5,11 +5,11 @@ include $(THEOS)/makefiles/common.mk
 
 BUNDLE_NAME = ZebraAutoCompletePrefs
 
-ZebraAutoCompletePrefs_FILES = Preferences.m
-ZebraAutoCompletePrefs_INSTALL_PATH = /Library/PreferenceBundles
-ZebraAutoCompletePrefs_FRAMEWORKS = UIKit
-ZebraAutoCompletePrefs_PRIVATE_FRAMEWORKS = Preferences
-ZebraAutoCompletePrefs_CFLAGS = -fobjc-arc
+$(BUNDLE_NAME)_FILES = Preferences.m
+$(BUNDLE_NAME)_INSTALL_PATH = /Library/PreferenceBundles
+$(BUNDLE_NAME)_FRAMEWORKS = UIKit
+$(BUNDLE_NAME)_PRIVATE_FRAMEWORKS = Preferences
+$(BUNDLE_NAME)_CFLAGS = -fobjc-arc
 
 include $(THEOS_MAKE_PATH)/bundle.mk
 
