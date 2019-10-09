@@ -8,6 +8,11 @@
 
 #import <UIKit/UIButton.h>
 
-@interface ZBConsoleViewController
+@interface ZBConsoleViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UIButton *completeButton;
+
+- (void)updateCompleteButton;
+- (void)closeZebra;
+- (void)restartSpringBoard;
+- (void)close;
 @end
