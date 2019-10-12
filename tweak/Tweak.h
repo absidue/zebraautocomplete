@@ -8,11 +8,19 @@
 
 #import <UIKit/UIButton.h>
 
+typedef enum {
+    ZBLogLevelDescript,
+    ZBLogLevelInfo,
+    ZBLogLevelWarning,
+    ZBLogLevelError
+} ZBLogLevel;
+
 @interface ZBConsoleViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UIButton *completeButton;
 
-- (void)updateCompleteButton;
 - (void)closeZebra;
 - (void)restartSpringBoard;
 - (void)close;
+- (void)updateCompleteButton;
+- (void)writeToConsole:(NSString *)str atLevel:(ZBLogLevel)level;
 @end

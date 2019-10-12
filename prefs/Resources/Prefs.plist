@@ -45,6 +45,40 @@
 		<dict>
 			<key>cell</key>
 			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Exceptions</string>
+			<key>footerText</key>
+			<string>Do not auto complete if errors and/or warnings are shown in the console</string>
+			<key>isStaticText</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>me.absidue.zebraautocomplete</string>
+			<key>key</key>
+			<string>abortOnError</string>
+			<key>label</key>
+			<string>Error</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>me.absidue.zebraautocomplete</string>
+			<key>key</key>
+			<string>abortOnWarning</string>
+			<key>label</key>
+			<string>Warning</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
 			<key>footerText</key>
 			<string>Closing Zebra is required for enabling/disabling tweak</string>
 		</dict>
